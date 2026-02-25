@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { StickyMobileCTA } from "@/components/layout/StickyMobileCTA";
 
 // Clean, modern font
 const inter = Inter({
@@ -76,6 +77,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
         <Header />
+        <StickyMobileCTA />
         <main className="flex-1">{children}</main>
         <Footer />
       </body>

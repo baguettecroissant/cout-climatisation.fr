@@ -11,6 +11,7 @@ import { LocalAidsModule } from "@/components/psea/LocalAidsModule";
 import { StepsModule } from "@/components/psea/StepsModule";
 import { GuidesWidget } from "@/components/seo/GuidesWidget";
 import Link from "next/link";
+import { generateSpintaxContent } from "@/lib/spintax";
 
 // Next.js 15 params
 type Props = {
@@ -106,16 +107,7 @@ export default async function CityPage({ params }: Props) {
                     <h2 className="text-3xl font-bold text-slate-900 mb-6">
                         La climatisation à {city.name}
                     </h2>
-                    <div className="prose prose-lg text-slate-600">
-                        <p>
-                            Vivre à <strong>{city.name}</strong> ({city.zip}) offre une qualité de vie appréciable. {introText}
-                            Face aux canicules de plus en plus fréquentes, l&apos;installation d&apos;une climatisation ou pompe à chaleur air-air est devenue un investissement essentiel pour votre confort thermique et vos économies d&apos;énergie.
-                        </p>
-                        <p className="mt-4">
-                            Dans le département ({city.department_name}), de nombreux artisans certifiés RGE proposent des solutions
-                            adaptées : climatisation mono-split, multi-split, ou système gainable pour un confort optimal.
-                        </p>
-                    </div>
+                    {generateSpintaxContent(city)}
                 </section>
 
                 {/* Prestations Links — SEO 2D */}

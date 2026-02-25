@@ -24,7 +24,7 @@ export function SchemaOrg({ city }: SchemaOrgProps) {
             "latitude": city.coordinates.lat,
             "longitude": city.coordinates.lng
         },
-        "url": `https://www.cout-climatisation.fr/prix-climatisation/${city.slug}-${city.zip}`,
+        "url": `https://www.cout-climatisation.fr/prix-climatisation/${city.slug}`,
         "provider": {
             "@type": "Organization",
             "name": "Cout-Climatisation.fr",

@@ -96,12 +96,29 @@ export async function GET(
         }
 
         const cityLastUpdated = new Date('2026-02-13');
-        urls = departmentCities.map((city) => ({
-            url: `${BASE_URL}/prix-climatisation/${city.slug}`,
-            lastModified: cityLastUpdated,
-            changeFrequency: 'weekly',
-            priority: 0.6,
-        }));
+        const prestations = ['installation', 'entretien', 'gainable', 'daikin', 'mono-split', 'multi-split'];
+
+        urls = departmentCities.flatMap((city) => {
+            const cityUrls = [
+                {
+                    url: `${BASE_URL}/prix-climatisation/${city.slug}`,
+                    lastModified: cityLastUpdated,
+                    changeFrequency: 'weekly',
+                    priority: 0.6,
+                }
+            ];
+
+            prestations.forEach(prestation => {
+                cityUrls.push({
+                    url: `${BASE_URL}/prix-climatisation/${city.slug}/${prestation}`,
+                    lastModified: cityLastUpdated,
+                    changeFrequency: 'weekly',
+                    priority: 0.5,
+                });
+            });
+
+            return cityUrls;
+        });
     }
 
     const xml = `<?xml version="1.0" encoding="UTF-8"?>

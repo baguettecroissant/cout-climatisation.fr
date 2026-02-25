@@ -6,6 +6,7 @@ import { DepartmentBreadcrumb } from "@/components/psea/DepartmentBreadcrumb";
 import { NearbyCitiesModule } from "@/components/psea/NearbyCitiesModule";
 import { Metadata } from "next";
 import Link from "next/link";
+import { generateSpintaxContent } from "@/lib/spintax";
 
 // Next.js 15 params
 type Props = {
@@ -130,12 +131,7 @@ export default async function PrestationPage({ params }: Props) {
                     <h2 className="text-2xl font-bold text-slate-900 mb-6">
                         Prix {prestationInfo.title} à {city.name} en 2026
                     </h2>
-                    <div className="prose prose-lg text-slate-600">
-                        <p>
-                            Le coût d&apos;une {prestationInfo.description.replace("installation d'une ", "").replace("installation d'un ", "").replace("entretien de ", "")} à <strong>{city.name}</strong> varie en fonction de la surface à climatiser, de la configuration de votre logement et du type d&apos;équipement choisi.
-                            Nos installateurs partenaires certifiés RGE interviennent dans tout le département {city.department_name} pour vous proposer les meilleures solutions.
-                        </p>
-                    </div>
+                    {generateSpintaxContent(city, prestation)}
                 </section>
 
                 {/* Devis CTA */}

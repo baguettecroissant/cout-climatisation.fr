@@ -109,10 +109,10 @@ export const GUIDES: GuideArticle[] = [
     {
         slug: "remboursement-climatisation-securite-sociale",
         title: "Aides & Remboursement Climatisation 2026 : MaPrimeRénov', CEE et Crédit d'Impôt",
-        excerpt: "Quelles aides pour financer votre climatisation réversible ? MaPrimeRénov', CEE, TVA 5,5%, crédit d'impôt, aides locales : le guide complet des dispositifs 2026 avec conditions et montants.",
+        excerpt: "De quelles aides pouvez-vous bénéficier pour l'installation d'une climatisation réversible en 2026 ? Découvrez comment réduire votre facture grâce à MaPrimeRénov', aux primes CEE et au crédit d'impôt.",
         date: "2026-02-18",
         author: "Rédaction Cout-Climatisation.fr",
-        image: "/images/blog/prix-climatisation-2026.png",
+        image: "/images/blog/aides-climatisation-2026.png",
         metaTitle: "Aides Climatisation 2026 : MaPrimeRénov', CEE, TVA 5,5% | Guide Complet",
         metaDescription: "Toutes les aides pour financer votre climatisation réversible en 2026 : CEE jusqu'à 900 €, TVA 5,5%, MaPrimeRénov' (rénovation globale). Conditions et montants détaillés.",
         content: `
@@ -203,10 +203,10 @@ export const GUIDES: GuideArticle[] = [
     {
         slug: "entretien-climatisation",
         title: "Entretien Climatisation : Guide Complet, Coûts et Obligations 2026",
-        excerpt: "Tout savoir sur l'entretien de votre climatisation : fréquence obligatoire, coût d'un contrat annuel, gestes à faire soi-même, et quand appeler un professionnel. Guide pratique 2026.",
+        excerpt: "L'entretien de votre climatiseur est essentiel pour ses performances et son hygiène. Quelles sont vos obligations légales ? Combien coûte un contrat d'entretien ? Découvrez notre guide complet.",
         date: "2026-02-15",
         author: "Rédaction Cout-Climatisation.fr",
-        image: "/images/blog/prix-climatisation-2026.png",
+        image: "/images/blog/entretien-climatisation-2026.png",
         metaTitle: "Entretien Climatisation 2026 : Coût, Fréquence et Obligations | Guide Complet",
         metaDescription: "Entretien obligatoire de votre climatisation : coût de 100 à 300 €/an, fréquence, gestes DIY et quand appeler un pro RGE. Guide complet avec checklist.",
         content: `
@@ -295,10 +295,10 @@ export const GUIDES: GuideArticle[] = [
     {
         slug: "comparatif-marques-climatisation",
         title: "Comparatif des Marques de Climatisation 2026 : Daikin vs Mitsubishi vs Atlantic",
-        excerpt: "Daikin, Mitsubishi Electric, Atlantic, Toshiba, LG ou Fujitsu : quelle marque choisir pour votre climatisation ? Comparatif complet avec avis d'experts : performances, prix, SAV et garantie.",
-        date: "2026-02-12",
+        excerpt: "Quelle est la meilleure marque de climatisation en 2026 ? Nous comparons Daikin, Mitsubishi Electric, Atlantic et d'autres marques leaders pour vous aider à faire le bon choix selon votre budget.",
+        date: "2026-02-10",
         author: "Rédaction Cout-Climatisation.fr",
-        image: "/images/blog/prix-climatisation-2026.png",
+        image: "/images/blog/comparatif-marques-climatisation.png",
         metaTitle: "Comparatif Marques Climatisation 2026 : Daikin vs Mitsubishi vs Atlantic vs Toshiba",
         metaDescription: "Quelle marque de climatisation choisir en 2026 ? Comparatif Daikin, Mitsubishi, Atlantic, Toshiba, LG, Fujitsu : prix, SEER, SAV, garantie. Avis d'experts.",
         content: `
@@ -381,10 +381,10 @@ export const GUIDES: GuideArticle[] = [
     {
         slug: "climatisation-occasion",
         title: "Climatisation d'Occasion & Reconditionnée : Bonne Affaire ou Piège ?",
-        excerpt: "Acheter une climatisation d'occasion ou reconditionnée permet d'économiser 30 à 50%. Mais quels sont les risques ? Fluide frigorigène, garantie, compatibilité : notre analyse complète.",
-        date: "2026-02-08",
+        excerpt: "Peut-on acheter un climatiseur d'occasion ou reconditionné en 2026 ? Économies potentielles, risques, réglementation F-Gas sur les fluides frigorigènes : ce qu'il faut absolument savoir avant d'acheter.",
+        date: "2026-02-05",
         author: "Rédaction Cout-Climatisation.fr",
-        image: "/images/blog/prix-climatisation-2026.png",
+        image: "/images/blog/climatisation-occasion.png",
         metaTitle: "Climatisation Occasion & Reconditionnée 2026 : Prix, Risques et Conseils",
         metaDescription: "Climatisation d'occasion ou reconditionnée : économie de 30-50% mais attention aux pièges. Fluide périmé, garantie, installation : notre guide pour éviter les arnaques.",
         content: `
@@ -406,7 +406,7 @@ export const GUIDES: GuideArticle[] = [
 <h2>Les risques de l'occasion</h2>
 
 <h3>1. Le fluide frigorigène</h3>
-<p>Un climatiseur d'occasion peut contenir du <strong>R-410A</strong> (ancien fluide à fort GWP), dont l'approvisionnement devient de plus en plus coûteux en raison de la réglementation F-Gas européenne. Une recharge de R-410A coûte désormais 300 à 600 €, contre 150 € pour du <a href="/glossaire">R-32</a>.</p>
+<p>Un climatiseur d'occasion peut contenir du <strong>R-410A</strong> (ancien fluide à fort GWP), dont l'approvisionnement devient de plus en plus coûteux en raison de la réglementation F-Gas européenne. Une recharge de R-410A coûte désormais 300 à 600 € contre 150 € pour du <a href="/glossaire">R-32</a>.</p>
 
 <h3>2. L'absence de garantie</h3>
 <p>Aucune garantie constructeur ne s'applique sur un appareil revendu par un particulier. En cas de panne du compresseur (réparation : 800 – 1 500 €), tout est à votre charge. Comparez avec un appareil neuf sous garantie <a href="/marques/lg">10 ans (LG)</a> ou <a href="/marques/daikin">5+5 ans (Daikin)</a>.</p>
@@ -440,10 +440,10 @@ export const GUIDES: GuideArticle[] = [
     {
         slug: "devis-climatisation-pieges",
         title: "7 Pièges à Éviter sur un Devis Climatisation (Guide 2026)",
-        excerpt: "Comment lire et comparer un devis de climatisation ? Découvrez les 7 pièges les plus fréquents et nos conseils pour ne pas surpayer votre installation.",
-        date: "2026-02-05",
+        excerpt: "Comment analyser un devis d'installation de climatisation ? Découvrez les 7 points de vigilance cruciaux pour éviter les arnaques et faire le bon choix de professionnel.",
+        date: "2026-02-01",
         author: "Rédaction Cout-Climatisation.fr",
-        image: "/images/blog/prix-climatisation-2026.png",
+        image: "/images/blog/pieges-devis-climatisation-2026.png",
         metaTitle: "7 Pièges à Éviter sur un Devis Climatisation | Guide Expert 2026",
         metaDescription: "Comment lire un devis de climatisation ? Les 7 pièges les plus courants : prix gonflés, marque absente, mise en service non incluse. Guide pour comparer et négocier.",
         content: `
