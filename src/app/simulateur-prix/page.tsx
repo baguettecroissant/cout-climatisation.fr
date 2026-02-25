@@ -6,45 +6,45 @@ import { Calculator, ArrowRight, CheckCircle, Info, Euro } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 
-type EscalierType = "droit" | "tournant" | "exterieur";
-type Longueur = "court" | "moyen" | "long";
+type InstallationType = "monosplit" | "multisplit" | "gainable";
+type SurfaceArea = "petite" | "moyenne" | "grande";
 
 interface PriceRange {
     min: number;
     max: number;
 }
 
-// Price matrix based on type and length
-const PRICE_MATRIX: Record<EscalierType, Record<Longueur, PriceRange>> = {
-    droit: {
-        court: { min: 2500, max: 3500 },
-        moyen: { min: 3500, max: 4500 },
-        long: { min: 4500, max: 6000 },
+// Price matrix based on AC type and surface area
+const PRICE_MATRIX: Record<InstallationType, Record<SurfaceArea, PriceRange>> = {
+    monosplit: {
+        petite: { min: 1200, max: 2000 },
+        moyenne: { min: 2000, max: 3000 },
+        grande: { min: 2500, max: 4000 },
     },
-    tournant: {
-        court: { min: 7000, max: 9000 },
-        moyen: { min: 9000, max: 11000 },
-        long: { min: 11000, max: 14000 },
+    multisplit: {
+        petite: { min: 3000, max: 4500 },
+        moyenne: { min: 4500, max: 6500 },
+        grande: { min: 6500, max: 9000 },
     },
-    exterieur: {
-        court: { min: 4000, max: 6000 },
-        moyen: { min: 6000, max: 9000 },
-        long: { min: 9000, max: 14000 },
+    gainable: {
+        petite: { min: 5000, max: 7500 },
+        moyenne: { min: 7500, max: 10000 },
+        grande: { min: 10000, max: 14000 },
     },
 };
 
 // Options costs
 const OPTIONS = {
-    pivotant: { label: "Siège pivotant motorisé", cost: 600 },
-    reposepieds: { label: "Repose-pieds automatique", cost: 300 },
-    rail_relevable: { label: "Rail relevable (bas)", cost: 1200 },
-    telecommande: { label: "Télécommande supplémentaire", cost: 150 },
+    wifi: { label: "Module Wi-Fi (Contrôle smartphone)", cost: 150 },
+    purification: { label: "Filtre purificateur d'air avancé", cost: 250 },
+    design: { label: "Unités murales design (Couleur/Miroir)", cost: 500 },
+    entretien: { label: "Contrat d'entretien 1ère année", cost: 150 },
 };
 
 export default function SimulateurPrix() {
     const [step, setStep] = useState(1);
-    const [escalierType, setEscalierType] = useState<EscalierType | null>(null);
-    const [longueur, setLongueur] = useState<Longueur | null>(null);
+    const [installType, setInstallType] = useState<InstallationType | null>(null);
+    const [surface, setSurface] = useState<SurfaceArea | null>(null);
     const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
     const [showResult, setShowResult] = useState(false);
 
@@ -57,9 +57,9 @@ export default function SimulateurPrix() {
     };
 
     const calculatePrice = (): PriceRange | null => {
-        if (!escalierType || !longueur) return null;
+        if (!installType || !surface) return null;
 
-        const basePrice = PRICE_MATRIX[escalierType][longueur];
+        const basePrice = PRICE_MATRIX[installType][surface];
         const optionsCost = selectedOptions.reduce(
             (sum, opt) => sum + (OPTIONS[opt as keyof typeof OPTIONS]?.cost || 0),
             0
@@ -72,7 +72,7 @@ export default function SimulateurPrix() {
     };
 
     const handleSubmit = () => {
-        if (escalierType && longueur) {
+        if (installType && surface) {
             setShowResult(true);
         }
     };
@@ -102,7 +102,7 @@ export default function SimulateurPrix() {
                             Simulateur de Prix Climatisation
                         </h1>
                         <p className="text-xl text-slate-300">
-                            Estimez le coût de votre installation en 30 secondes
+                            Estimez le coût de votre PAC air-air pose comprise en 30 secondes
                         </p>
                     </div>
                 </div>
@@ -125,7 +125,7 @@ export default function SimulateurPrix() {
                                     </div>
                                     <div className={`flex items-center gap-2 ${step >= 2 ? 'text-cyan-600' : 'text-slate-400'}`}>
                                         <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${step >= 2 ? 'bg-cyan-600 text-white' : 'bg-slate-200'}`}>2</div>
-                                        <span className="hidden sm:inline font-medium">Longueur</span>
+                                        <span className="hidden sm:inline font-medium">Surface</span>
                                     </div>
                                     <div className="flex-1 h-1 bg-slate-200 rounded">
                                         <div className={`h-full bg-cyan-600 rounded transition-all ${step >= 3 ? 'w-full' : 'w-0'}`}></div>
@@ -142,61 +142,61 @@ export default function SimulateurPrix() {
                                 {step === 1 && (
                                     <div>
                                         <h2 className="text-2xl font-bold text-slate-900 mb-6">
-                                            Quel type d'escalier avez-vous ?
+                                            Quel type d'installation souhaitez-vous ?
                                         </h2>
                                         <div className="grid gap-4">
                                             {[
-                                                { value: "droit", label: "Escalier Droit", desc: "Sans virage, le plus économique" },
-                                                { value: "tournant", label: "Escalier Tournant", desc: "Avec un ou plusieurs virages" },
-                                                { value: "exterieur", label: "Escalier Extérieur", desc: "Perron, jardin, accès garage" },
+                                                { value: "monosplit", label: "Mono-split (1 pièce)", desc: "1 unité intérieure raccordée à 1 groupe extérieur. Idéal pour un salon ou une chambre seule." },
+                                                { value: "multisplit", label: "Multi-split (2 à 5 pièces)", desc: "Plusieurs unités intérieures raccordées à un seul groupe extérieur. Idéal pour équiper toute la maison." },
+                                                { value: "gainable", label: "Gainable (Invisible)", desc: "Diffusion de l'air par des grilles au plafond, système caché dans les combles. Esthétique Premium." },
                                             ].map((type) => (
                                                 <button
                                                     key={type.value}
                                                     onClick={() => {
-                                                        setEscalierType(type.value as EscalierType);
+                                                        setInstallType(type.value as InstallationType);
                                                         setStep(2);
                                                     }}
-                                                    className={`p-4 border-2 rounded-xl text-left transition-all ${escalierType === type.value
+                                                    className={`p-4 border-2 rounded-xl text-left transition-all ${installType === type.value
                                                         ? 'border-cyan-500 bg-cyan-50'
                                                         : 'border-slate-200 hover:border-cyan-300'
                                                         }`}
                                                 >
                                                     <div className="font-bold text-slate-900">{type.label}</div>
-                                                    <div className="text-sm text-slate-500">{type.desc}</div>
+                                                    <div className="text-sm text-slate-500 mt-1">{type.desc}</div>
                                                 </button>
                                             ))}
                                         </div>
                                     </div>
                                 )}
 
-                                {/* Step 2: Longueur */}
+                                {/* Step 2: Surface */}
                                 {step === 2 && (
                                     <div>
                                         <button onClick={() => setStep(1)} className="text-sm text-slate-500 hover:text-cyan-600 mb-4">
                                             ← Retour
                                         </button>
                                         <h2 className="text-2xl font-bold text-slate-900 mb-6">
-                                            Combien de marches environ ?
+                                            Quelle est la surface totale à climatiser ?
                                         </h2>
                                         <div className="grid gap-4">
                                             {[
-                                                { value: "court", label: "Moins de 10 marches", desc: "Escalier court (rez-de-chaussée)" },
-                                                { value: "moyen", label: "10 à 15 marches", desc: "Escalier standard (1 étage)" },
-                                                { value: "long", label: "Plus de 15 marches", desc: "Escalier long (2 étages ou plus)" },
-                                            ].map((len) => (
+                                                { value: "petite", label: "Moins de 40 m²", desc: "Studio, petit appartement ou pièce unique." },
+                                                { value: "moyenne", label: "De 40 à 80 m²", desc: "Appartement standard ou partie de maison." },
+                                                { value: "grande", label: "Plus de 80 m²", desc: "Grande maison nécessitant une puissance importante." },
+                                            ].map((s) => (
                                                 <button
-                                                    key={len.value}
+                                                    key={s.value}
                                                     onClick={() => {
-                                                        setLongueur(len.value as Longueur);
+                                                        setSurface(s.value as SurfaceArea);
                                                         setStep(3);
                                                     }}
-                                                    className={`p-4 border-2 rounded-xl text-left transition-all ${longueur === len.value
+                                                    className={`p-4 border-2 rounded-xl text-left transition-all ${surface === s.value
                                                         ? 'border-cyan-500 bg-cyan-50'
                                                         : 'border-slate-200 hover:border-cyan-300'
                                                         }`}
                                                 >
-                                                    <div className="font-bold text-slate-900">{len.label}</div>
-                                                    <div className="text-sm text-slate-500">{len.desc}</div>
+                                                    <div className="font-bold text-slate-900">{s.label}</div>
+                                                    <div className="text-sm text-slate-500 mt-1">{s.desc}</div>
                                                 </button>
                                             ))}
                                         </div>
@@ -210,7 +210,7 @@ export default function SimulateurPrix() {
                                             ← Retour
                                         </button>
                                         <h2 className="text-2xl font-bold text-slate-900 mb-2">
-                                            Options souhaitées
+                                            Options de confort supplémentaires
                                         </h2>
                                         <p className="text-slate-500 mb-6">(Facultatif, vous pouvez passer cette étape)</p>
                                         <div className="grid gap-3 mb-8">
@@ -255,13 +255,13 @@ export default function SimulateurPrix() {
                                     <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4">
                                         <CheckCircle className="h-8 w-8 text-green-600" />
                                     </div>
-                                    <h2 className="text-2xl font-bold text-slate-900 mb-2">Votre estimation de prix</h2>
-                                    <p className="text-slate-500">Climatisation {escalierType} • {longueur === 'court' ? '<10' : longueur === 'moyen' ? '10-15' : '>15'} marches</p>
+                                    <h2 className="text-2xl font-bold text-slate-900 mb-2">Votre estimation budgétaire</h2>
+                                    <p className="text-slate-500 capitalize">Installation {installType} • Surface {surface}</p>
                                 </div>
 
                                 {price && (
                                     <div className="bg-gradient-to-r from-cyan-500 to-sky-500 text-white rounded-2xl p-6 text-center mb-8">
-                                        <div className="text-sm uppercase tracking-wider mb-2 opacity-90">Estimation (pose comprise)</div>
+                                        <div className="text-sm uppercase tracking-wider mb-2 opacity-90">Estimation Matériel & Pose</div>
                                         <div className="text-4xl md:text-5xl font-bold">
                                             {formatPrice(price.min)} - {formatPrice(price.max)}
                                         </div>
@@ -276,13 +276,13 @@ export default function SimulateurPrix() {
                                     </h3>
                                     <ul className="space-y-2 text-sm">
                                         <li className="flex justify-between">
-                                            <span className="text-slate-600">Climatisation {escalierType} ({longueur})</span>
-                                            <span className="font-medium">{formatPrice(PRICE_MATRIX[escalierType!][longueur!].min)} - {formatPrice(PRICE_MATRIX[escalierType!][longueur!].max)}</span>
+                                            <span className="text-slate-600 capitalize">Système {installType} ({surface})</span>
+                                            <span className="font-medium">{formatPrice(PRICE_MATRIX[installType!][surface!].min)} - {formatPrice(PRICE_MATRIX[installType!][surface!].max)}</span>
                                         </li>
                                         {selectedOptions.map(opt => (
-                                            <li key={opt} className="flex justify-between">
+                                            <li key={opt} className="flex justify-between border-t border-slate-200 pt-2 mt-2">
                                                 <span className="text-slate-600">{OPTIONS[opt as keyof typeof OPTIONS].label}</span>
-                                                <span className="font-medium">+{formatPrice(OPTIONS[opt as keyof typeof OPTIONS].cost)}</span>
+                                                <span className="font-medium text-cyan-700">+{formatPrice(OPTIONS[opt as keyof typeof OPTIONS].cost)}</span>
                                             </li>
                                         ))}
                                     </ul>
@@ -293,8 +293,12 @@ export default function SimulateurPrix() {
                                     <div className="flex gap-3">
                                         <Info className="h-5 w-5 text-blue-600 shrink-0 mt-0.5" />
                                         <div className="text-sm text-blue-800">
-                                            <strong>Bon à savoir :</strong> Ces prix peuvent être réduits de 25% à 70% grâce aux aides (MaPrimeRénov', crédit d'impôt).{' '}
-                                            <Link href="/calculateur-aides" className="underline font-medium">Calculez vos aides →</Link>
+                                            <span className="block mb-2">
+                                                <strong>Aides financières :</strong> Le coût réel de votre installation peut être réduit grâce aux subventions de l'État (Primes CEE) et à la TVA réduite à 5,5%.
+                                            </span>
+                                            <Link href="/calculateur-aides" className="inline-flex items-center text-blue-700 font-bold hover:underline">
+                                                Calculer mes aides climatisation <ArrowRight className="ml-1 w-4 h-4" />
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>
@@ -304,28 +308,30 @@ export default function SimulateurPrix() {
                                         onClick={() => {
                                             setShowResult(false);
                                             setStep(1);
-                                            setEscalierType(null);
-                                            setLongueur(null);
+                                            setInstallType(null);
+                                            setSurface(null);
                                             setSelectedOptions([]);
                                         }}
                                         variant="outline"
-                                        className="h-12"
+                                        className="h-14 font-medium"
                                     >
                                         Refaire une simulation
                                     </Button>
-                                    <Link href="/devis">
-                                        <Button className="w-full bg-cyan-600 hover:bg-cyan-700 text-white h-12">
-                                            Obtenir un devis précis
-                                            <ArrowRight className="ml-2 h-4 w-4" />
+                                    <Link href="/devis" className="block w-full">
+                                        <Button className="w-full bg-cyan-600 hover:bg-cyan-700 text-white h-14 font-bold text-lg">
+                                            Recevoir 3 devis précis
                                         </Button>
                                     </Link>
                                 </div>
                             </div>
 
                             {/* Trust signals */}
-                            <div className="bg-white rounded-xl border border-slate-200 p-6">
-                                <p className="text-center text-slate-600 text-sm">
-                                    <strong>Pourquoi demander un devis ?</strong> Cette estimation est indicative. Seule une visite technique à domicile (gratuite) permet un chiffrage précis tenant compte de votre escalier unique.
+                            <div className="bg-white rounded-xl border border-slate-200 p-6 flex items-start gap-4">
+                                <div className="bg-slate-100 p-2 rounded-full shrink-0">
+                                    <Info className="w-5 h-5 text-slate-500" />
+                                </div>
+                                <p className="text-slate-600 text-sm leading-relaxed">
+                                    <strong>Pourquoi demander des devis ?</strong> Cette estimation est indicative. Seule une visite technique à domicile (100% gratuite) par un installateur RGE permet un dimensionnement précis des puissances en kW de vos unités intérieures et extérieures, et un chiffrage de l'installation frigorifique au réel.
                                 </p>
                             </div>
                         </div>
@@ -335,20 +341,22 @@ export default function SimulateurPrix() {
 
             {/* SEO Content */}
             <section className="py-16 bg-white border-t border-slate-200">
-                <div className="container mx-auto px-4 max-w-3xl prose prose-slate">
-                    <h2>Comment fonctionne notre simulateur de prix ?</h2>
+                <div className="container mx-auto px-4 max-w-4xl prose prose-slate">
+                    <h2>Comment fonctionne le simulateur de prix climatisation ?</h2>
                     <p>
-                        Notre outil de simulation vous permet d'obtenir une <strong>estimation réaliste du coût d'un climatisation</strong> en quelques clics.
-                        Les prix sont basés sur les tarifs moyens constatés en France en 2026, pose comprise.
+                        Notre outil de simulation vous permet d'obtenir une <strong>estimation réaliste du budget de votre future PAC air-air (climatisation réversible)</strong>. Les prix affichés sont basés sur les tarifs moyens constatés en France en 2026, incluant le matériel de grandes marques (Daikin, Mitsubishi, Atlantic) et l'installation par un professionnel RGE.
                     </p>
-                    <h3>Facteurs pris en compte</h3>
+
+                    <h3>Les facteurs qui influencent le tarif :</h3>
                     <ul>
-                        <li><strong>Type d'escalier :</strong> Un escalier droit nécessite un rail standard, tandis qu'un tournant demande une fabrication sur-mesure.</li>
-                        <li><strong>Longueur du rail :</strong> Plus votre escalier est long, plus le coût du rail augmente.</li>
-                        <li><strong>Options de confort :</strong> Le siège pivotant, le repose-pieds automatique et le rail relevable sont des options populaires.</li>
+                        <li><strong>Le type de technologie :</strong> Une unité murale mono-split est la solution la plus économique, tandis qu'un système <Link href="/glossaire" className="text-cyan-600">gainable</Link> (intégré dans les combles) sera plus onéreux en raison des travaux de plafonds nécessaires.</li>
+                        <li><strong>La configuration du logement :</strong> La complexité pour passer les liaisons frigorifiques entre le groupe extérieur et les splits intérieurs impacte directement le temps de main-d'œuvre de l'installateur.</li>
+                        <li><strong>La puissance nécessaire :</strong> Plus la surface à chauffer et à rafraîchir est grande, plus l'équipement doit être puissant (calcul en kW) et performant (voir les taux <Link href="/glossaire" className="text-cyan-600">SEER et SCOP</Link>).</li>
+                        <li><strong>Les options de confort :</strong> Les filtres purificateurs d'air avancés, le pilotage à distance via Wi-Fi ou des designs spécifiques peuvent ajouter un surcoût.</li>
                     </ul>
+
                     <p>
-                        <Link href="/guides/prix-climatisation-2026" className="text-cyan-600">Consultez notre guide complet des prix 2026</Link> pour plus de détails.
+                        Pour découvrir le détail étape par étape des coûts de matériel et de main d'œuvre, nous vous invitons à consulter notre <Link href="/guides/prix-climatisation-2026" className="text-cyan-600 font-bold hover:underline">Guide Complet des Prix Climatisation 2026</Link>.
                     </p>
                 </div>
             </section>
