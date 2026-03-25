@@ -20,8 +20,8 @@ export default function Home() {
         {/* Background Image Overlay */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/hero-senior.png"
-            alt="Couple senior heureux utilisant un climatisation moderne"
+            src="/images/hero-climatisation.jpg"
+            alt="Climatisation murale moderne installée dans un salon contemporain"
             fill
             className="object-cover opacity-30 sm:opacity-40"
             priority
@@ -42,7 +42,7 @@ export default function Home() {
             </h1>
 
             <p className="text-xl text-slate-200 mb-8 leading-relaxed">
-              Ne payez pas trop cher votre autonomie. Comparez gratuitement les devis d'artisans certifiés RGE près de chez vous.
+              Ne payez pas trop cher votre confort. Comparez gratuitement les devis d&apos;installateurs certifiés RGE près de chez vous.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -82,7 +82,7 @@ export default function Home() {
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl font-bold text-slate-900 mb-4">Pourquoi comparer avant d'installer ?</h2>
             <p className="text-slate-600 text-lg">
-              Le marché du climatisation est complexe. Les écarts de prix peuvent aller du simple au triple pour un même modèle. Notre mission est de vous redonner le pouvoir.
+              Le marché de la climatisation est complexe. Les écarts de prix peuvent aller du simple au triple pour un même modèle. Notre mission est de vous redonner le pouvoir.
             </p>
           </div>
 
@@ -116,7 +116,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-3">Aides déduites</h3>
               <p className="text-slate-600">
-                MaPrimeRénov', Crédit d'Impôt, APA... Nos partenaires intègrent directement les aides auxquelles vous avez droit dans leurs devis.
+                CEE, MaPrimeRénov&apos;, TVA réduite à 5,5%... Nos partenaires intègrent directement les aides auxquelles vous avez droit dans leurs devis.
               </p>
             </div>
           </div>
@@ -128,30 +128,30 @@ export default function Home() {
         <div className="container mx-auto px-4 flex flex-col lg:flex-row gap-16">
           <div className="lg:w-2/3 prose prose-lg prose-slate">
             <h2 className="text-3xl font-extrabold text-slate-900 not-prose mb-8">
-              Quel est le prix moyen d'un climatisation en 2026 ?
+              Quel est le prix moyen d&apos;une climatisation en 2026 ?
             </h2>
             <p>
-              L'installation d'un climatisation est un investissement stratégique pour le maintien à domicile. Contrairement aux idées reçues, c'est une solution souvent bien plus économique qu'un déménagement ou qu'une place en résidence senior.
+              L&apos;installation d&apos;une climatisation réversible (PAC air-air) est un investissement rentable pour le confort thermique de votre logement. Elle permet de chauffer en hiver et de rafraîchir en été, tout en réduisant vos factures énergétiques.
             </p>
             <p>
-              Le coût varie principalement selon la configuration de votre escalier :
+              Le coût varie principalement selon le type de système choisi :
             </p>
             <ul className="not-prose grid gap-4 my-8">
               <li className="flex items-center gap-4 p-4 bg-slate-50 rounded-lg border border-slate-200">
-                <span className="font-bold text-slate-900 min-w-[120px]">Escalier Droit</span>
-                <span className="text-slate-600">Entre <strong>2 500 € et 5 000 €</strong> pose comprise. C'est le modèle le plus simple et rapide à installer.</span>
+                <span className="font-bold text-slate-900 min-w-[120px]">Monosplit</span>
+                <span className="text-slate-600">Entre <strong>1 500 € et 3 000 €</strong> pose comprise. Idéal pour climatiser une seule pièce (chambre, salon).</span>
               </li>
               <li className="flex items-center gap-4 p-4 bg-slate-50 rounded-lg border border-slate-200">
-                <span className="font-bold text-slate-900 min-w-[120px]">Escalier Tournant</span>
-                <span className="text-slate-600">Entre <strong>6 000 € et 12 000 €</strong>. Nécessite une fabrication sur-mesure du rail pour épouser les courbes.</span>
+                <span className="font-bold text-slate-900 min-w-[120px]">Multisplit</span>
+                <span className="text-slate-600">Entre <strong>3 000 € et 8 000 €</strong>. Une unité extérieure alimente 2 à 5 unités intérieures pour plusieurs pièces.</span>
               </li>
               <li className="flex items-center gap-4 p-4 bg-slate-50 rounded-lg border border-slate-200">
-                <span className="font-bold text-slate-900 min-w-[120px]">Extérieur</span>
-                <span className="text-slate-600">Entre <strong>4 000 € et 10 000 €</strong>. Traitement anti-intempéries et étanchéité renforcée.</span>
+                <span className="font-bold text-slate-900 min-w-[120px]">Gainable</span>
+                <span className="text-slate-600">Entre <strong>5 000 € et 15 000 €</strong>. Système invisible intégré dans les faux plafonds, idéal en construction neuve.</span>
               </li>
             </ul>
             <p>
-              <strong>Attention :</strong> Ces prix sont donnés avant déduction des aides. Avec <span className="text-cyan-600 font-bold">MaPrimeRénov'</span>, vous pouvez obtenir jusqu'à 70% de financement sur ces montants !
+              <strong>Bon à savoir :</strong> La climatisation réversible (PAC air-air) est éligible aux <span className="text-cyan-600 font-bold">Certificats d&apos;Économie d&apos;Énergie (CEE)</span> qui peuvent financer jusqu&apos;à 900 € de votre installation.
               Pour en savoir plus sur les fabricants, consultez notre <Link href="/marques" className="text-cyan-600 font-medium underline">comparatif des marques de climatisation</Link>.
             </p>
           </div>
@@ -163,7 +163,7 @@ export default function Home() {
                 <Clock className="h-5 w-5" /> Installation Rapide
               </h3>
               <p className="text-sm text-cyan-800 mb-4">
-                Une fois le devis signé, l'installation se fait généralement en <strong>une demi-journée</strong> pour un escalier droit. Aucune dégradation de vos murs n'est à prévoir.
+                Une fois le devis signé, l&apos;installation se fait généralement en <strong>une journée</strong> pour un monosplit. Le technicien certifié RGE se charge du raccordement frigorifique et de la mise en service.
               </p>
               <Link href="/simulation-delais" className="block w-full">
                 <Button className="w-full bg-cyan-600 hover:bg-cyan-700 text-white">
@@ -273,34 +273,34 @@ export default function Home() {
                 "mainEntity": [
                   {
                     "@type": "Question",
-                    "name": "Quelles sont les aides disponibles en 2026 ?",
+                    "name": "Quelles sont les aides pour une climatisation en 2026 ?",
                     "acceptedAnswer": {
                       "@type": "Answer",
-                      "text": "L'aide principale est MaPrimeRénov', qui finance jusqu'à 50% ou 70% des travaux selon vos revenus. Vous pouvez également bénéficier d'un crédit d'impôt de 25% si vous n'êtes pas éligible à MaPrimeRénov', ainsi que d'une TVA réduite à 5,5%."
+                      "text": "La climatisation réversible (PAC air-air) est éligible aux Certificats d'Économie d'Énergie (CEE), pouvant financer jusqu'à 900 €. Vous bénéficiez aussi d'une TVA réduite à 10% (ou 5,5% si couplée à une rénovation énergétique globale). MaPrimeRénov' ne couvre pas les PAC air-air seules, mais les PAC air-eau oui."
                     }
                   },
                   {
                     "@type": "Question",
-                    "name": "Le climatisation abîme-t-il les murs ?",
+                    "name": "Qu'est-ce que le SEER et le SCOP ?",
                     "acceptedAnswer": {
                       "@type": "Answer",
-                      "text": "Non, dans 99% des cas, le rail est fixé directement sur les marches de l'escalier, pas au mur. Cela garantit une solidité maximale et évite de percer vos cloisons. L'installation est propre et sans gros travaux."
+                      "text": "Le SEER mesure l'efficacité en mode froid et le SCOP en mode chauffage. Plus ces indices sont élevés, plus l'appareil est performant. Visez un SEER supérieur à 6 et un SCOP supérieur à 4 pour un bon rapport qualité/prix."
                     }
                   },
                   {
                     "@type": "Question",
-                    "name": "Peut-on installer un climatisation dehors ?",
+                    "name": "L'entretien d'une climatisation est-il obligatoire ?",
                     "acceptedAnswer": {
                       "@type": "Answer",
-                      "text": "Tout à fait. Il existe des modèles Outdoor spécialement conçus pour résister à la pluie, au gel et aux UV. Ils sont livrés avec une housse de protection et une clé de verrouillage pour la sécurité."
+                      "text": "Oui, depuis le décret du 28 juillet 2020, un contrôle tous les 2 ans est obligatoire pour les systèmes contenant plus de 2 kg de fluide frigorigène. L'entretien annuel (nettoyage filtres, vérification du fluide) coûte entre 100 € et 200 €."
                     }
                   },
                   {
                     "@type": "Question",
-                    "name": "Quelle est la durée de vie de l'appareil ?",
+                    "name": "Quelle est la durée de vie d'une climatisation ?",
                     "acceptedAnswer": {
                       "@type": "Answer",
-                      "text": "Un climatisation de marque reconnue (Stannah, Otolift, Handicare...) a une durée de vie moyenne de 15 à 20 ans avec un entretien annuel régulier. Les batteries se changent généralement tous les 3 à 5 ans."
+                      "text": "Une climatisation de marque reconnue (Daikin, Mitsubishi Electric, Atlantic, Toshiba) a une durée de vie moyenne de 15 à 20 ans avec un entretien régulier. Le compresseur est garanti 5 ans minimum par la plupart des fabricants."
                     }
                   }
                 ]
@@ -310,27 +310,27 @@ export default function Home() {
 
           <Accordion type="single" collapsible className="w-full">
             <AccordionItem value="item-1">
-              <AccordionTrigger className="text-lg font-semibold text-slate-800">Quelles sont les aides disponibles en 2026 ?</AccordionTrigger>
+              <AccordionTrigger className="text-lg font-semibold text-slate-800">Quelles sont les aides pour une climatisation en 2026 ?</AccordionTrigger>
               <AccordionContent className="text-slate-600 leading-relaxed">
-                L'aide principale est <strong>MaPrimeRénov'</strong>, qui finance jusqu'à 50% ou 70% des travaux selon vos revenus. Vous pouvez également bénéficier d'un crédit d'impôt de 25% si vous n'êtes pas éligible à MaPrimeRénov', ainsi que d'une TVA réduite à 5,5%.
+                La climatisation réversible (PAC air-air) est éligible aux <strong>Certificats d&apos;Économie d&apos;Énergie (CEE)</strong>, pouvant financer jusqu&apos;à 900 €. Vous bénéficiez aussi d&apos;une TVA réduite à 10% (ou 5,5% si couplée à une rénovation énergétique globale). MaPrimeRénov&apos; ne couvre pas les PAC air-air seules, mais les PAC air-eau oui.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-2">
-              <AccordionTrigger className="text-lg font-semibold text-slate-800">Le climatisation abîme-t-il les murs ?</AccordionTrigger>
+              <AccordionTrigger className="text-lg font-semibold text-slate-800">Qu&apos;est-ce que le SEER et le SCOP ?</AccordionTrigger>
               <AccordionContent className="text-slate-600 leading-relaxed">
-                Non, dans 99% des cas, le rail est fixé directement sur les marches de l'escalier, pas au mur. Cela garantit une solidité maximale et évite de percer vos cloisons. L'installation est propre et sans gros travaux.
+                Le <strong>SEER</strong> mesure l&apos;efficacité en mode froid et le <strong>SCOP</strong> en mode chauffage. Plus ces indices sont élevés, plus l&apos;appareil est performant. Visez un SEER supérieur à 6 et un SCOP supérieur à 4 pour un bon rapport qualité/prix.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-3">
-              <AccordionTrigger className="text-lg font-semibold text-slate-800">Peut-on installer un climatisation dehors ?</AccordionTrigger>
+              <AccordionTrigger className="text-lg font-semibold text-slate-800">L&apos;entretien est-il obligatoire ?</AccordionTrigger>
               <AccordionContent className="text-slate-600 leading-relaxed">
-                Tout à fait. Il existe des modèles "Outdoor" spécialement conçus pour résister à la pluie, au gel et aux UV. Ils sont livrés avec une housse de protection et une clé de verrouillage pour la sécurité.
+                Oui, depuis le décret du 28 juillet 2020, un contrôle tous les 2 ans est obligatoire pour les systèmes contenant plus de 2 kg de fluide frigorigène. L&apos;entretien annuel (nettoyage filtres, vérification du fluide) coûte entre 100 € et 200 €.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-4">
-              <AccordionTrigger className="text-lg font-semibold text-slate-800">Quelle est la durée de vie de l'appareil ?</AccordionTrigger>
+              <AccordionTrigger className="text-lg font-semibold text-slate-800">Quelle est la durée de vie d&apos;une climatisation ?</AccordionTrigger>
               <AccordionContent className="text-slate-600 leading-relaxed">
-                Un climatisation de marque reconnue (Stannah, Otolift, Handicare...) a une durée de vie moyenne de 15 à 20 ans avec un entretien annuel régulier. Les batteries se changent généralement tous les 3 à 5 ans.
+                Une climatisation de marque reconnue (Daikin, Mitsubishi Electric, Atlantic, Toshiba) a une durée de vie moyenne de <strong>15 à 20 ans</strong> avec un entretien régulier. Le compresseur est garanti 5 ans minimum par la plupart des fabricants.
               </AccordionContent>
             </AccordionItem>
           </Accordion>
@@ -345,9 +345,9 @@ export default function Home() {
       {/* CTA Footer */}
       <section className="py-20 bg-cyan-600 text-white text-center">
         <div className="container mx-auto px-4 max-w-4xl">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">Prêt à retrouver votre liberté ?</h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-6">Prêt à profiter du confort toute l&apos;année ?</h2>
           <p className="text-xl text-cyan-100 mb-10">
-            Ne laissez plus vos escaliers décider pour vous. Comparez les solutions dès aujourd'hui.
+            Chauffage en hiver, fraîcheur en été. Comparez les devis d&apos;installateurs RGE près de chez vous.
           </p>
           <Link href="/devis">
             <Button size="lg" className="bg-white text-cyan-600 hover:bg-slate-100 text-xl px-12 h-16 rounded-full shadow-2xl transition-transform hover:scale-105">
